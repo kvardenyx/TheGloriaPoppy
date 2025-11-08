@@ -10,8 +10,8 @@ namespace _Project.Scripts
 
         [SerializeField] private Rigidbody2D _rb;
         
-        [SerializeField, Range(100f, 250f)] 
-        private float playerSpeed = 150f;
+        [SerializeField, Range(60f, 360f)] 
+        private float playerSpeed = 180f;
         
         [SerializeField] private ScoreController scoreController;
         
@@ -42,11 +42,11 @@ namespace _Project.Scripts
 
         void AddPlayerSpeed()
         {
-            if (playerSpeed < 0)
+            if (playerSpeed < 0f)
             {
                 playerSpeed -= 5f;
             } 
-            else if (playerSpeed > 0 && playerSpeed < 200)
+            else if (playerSpeed > 0f && playerSpeed < 200f)
             {
                 playerSpeed += 5f;
             }
@@ -54,7 +54,7 @@ namespace _Project.Scripts
 
         void Movment()
         {
-            _rb.angularVelocity = playerSpeed * Time.fixedDeltaTime;
+            _rb.angularVelocity = playerSpeed;
         }
     }
 }

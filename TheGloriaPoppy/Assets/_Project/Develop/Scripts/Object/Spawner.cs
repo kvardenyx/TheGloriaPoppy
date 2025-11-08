@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Project.Scripts
 {
@@ -19,13 +21,23 @@ namespace _Project.Scripts
         private Vector2 _randomPosition;
         
         [SerializeField] private ScoreController scoreController;
+        
+        private void OnEnable()
+        {
+            scoreController.PowerUp += LowerRespawnTime;
+        }
+
+        private void OnDisable()
+        {
+            scoreController.PowerUp -= LowerRespawnTime;
+        }
 
         private void Start()
         {
             StartCoroutine(SpawnEnemyLoop());
             StartCoroutine(SpawnBonusLoop());
             
-            scoreController.PowerUp += LowerRespawnTime;
+            
         }
 
         private void LowerRespawnTime()

@@ -14,10 +14,15 @@ namespace _Project.Scripts
         private float playerSpeed = 150f;
         
         [SerializeField] private ScoreController scoreController;
-
-        private void Start()
+        
+        private void OnEnable()
         {
             scoreController.PowerUp += AddPlayerSpeed;
+        }
+
+        private void OnDisable()
+        {
+            scoreController.PowerUp -= AddPlayerSpeed;
         }
 
         void Update()
@@ -49,7 +54,7 @@ namespace _Project.Scripts
 
         void Movment()
         {
-            _rb.angularVelocity = playerSpeed;
+            _rb.angularVelocity = playerSpeed * Time.fixedDeltaTime;
         }
     }
 }

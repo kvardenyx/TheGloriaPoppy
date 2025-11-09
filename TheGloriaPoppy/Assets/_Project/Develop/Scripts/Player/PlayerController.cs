@@ -6,6 +6,8 @@ namespace _Project.Scripts
     {
         [SerializeField] private ScenesManager scenesManager;
         [SerializeField] private HealthController healthController;
+
+        [SerializeField] private GameObject boneEffect;
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Enemy"))
@@ -17,6 +19,8 @@ namespace _Project.Scripts
             else
             {
                 Destroy(other.gameObject);
+
+                Instantiate(boneEffect, transform.position, Quaternion.identity);
                 
                 healthController.AddHealth();
             }

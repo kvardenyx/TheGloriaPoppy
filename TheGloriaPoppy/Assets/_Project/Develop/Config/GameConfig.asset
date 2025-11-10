@@ -27,5 +27,5 @@ MonoBehaviour:
   currentAspectRatio: 0.5625
   bonusLevelUp: 5
   increasePlayerSpeed: 5
-  increaseEnemySpeed: 0.2
-  reducingSpawnTime: 0.2
+  increaseEnemySpeed: 0.1
+  reducingSpawnTime: 0.1

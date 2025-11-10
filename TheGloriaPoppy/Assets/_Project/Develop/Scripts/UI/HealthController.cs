@@ -5,35 +5,41 @@ namespace _Project.Scripts
 {
     public class HealthController : MonoBehaviour
     {
+        public GameConfig config;
+        
         [SerializeField] private ScenesManager scenesManager;
         
         [SerializeField] private ScoreController scoreController;
         
-        [SerializeField, Range(1, 3)]private int healthValue = 1;
+        private int _healthValue;
         private Text _healthText;
 
         private void Start()
         {
             _healthText = gameObject.GetComponent<Text>();
+
+            _healthValue = config.playerHealth;
             
-            _healthText.text =healthValue.ToString();
+            _healthText.text = _healthValue.ToString();
         }
 
         public void AddHealth()
         {
-            healthValue++;
+            _healthValue++;
             
-            _healthText.text =healthValue.ToString();
+            _healthText.text = _healthValue.ToString();
         }
 
         public void RemoveHealth()
         {
-            healthValue--;
+            _healthValue--;
             
-            _healthText.text =healthValue.ToString();
+            _healthText.text = _healthValue.ToString();
             
-            if (healthValue < 1)
+            if (_healthValue < 1)
             {
+                scoreController.SaveScore();
+                
                 scoreController.ChangeRecord();
                 
                 scenesManager.LoadScene("LoseScene");

@@ -7,13 +7,15 @@ namespace _Project.Scripts
 {
     public class Spawner : MonoBehaviour
     {
+        public GameConfig config;
+        
         [SerializeField] private Transform spawnerPositon;
         [SerializeField] private Vector2 spawnerRange;
+        
+        private float _minInterval;
+        private float _maxInterval;
 
-        [SerializeField, Range(1f, 3f)] 
-        private float minTime = 3f;
-        [SerializeField, Range(2f, 5f)] 
-        private float maxTime = 5f;
+        private float _speed;
 
         [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private GameObject bonusPrefab;
@@ -24,32 +26,33 @@ namespace _Project.Scripts
         
         private void OnEnable()
         {
-            scoreController.PowerUp += LowerRespawnTime;
+            scoreController.LevelUp += LowerRespawnTime;
+            scoreController.LevelUp += SpeedUp;
         }
 
         private void OnDisable()
         {
-            scoreController.PowerUp -= LowerRespawnTime;
+            scoreController.LevelUp -= LowerRespawnTime;
+            scoreController.LevelUp -= SpeedUp;
         }
 
         private void Start()
         {
+            _minInterval = config.lowerEnemySpawnInterval;
+            _maxInterval = config.upperEnemySpawnInterval;
+
+            _speed = config.baseEnemySpeed;
+            
             StartCoroutine(SpawnEnemyLoop());
             StartCoroutine(SpawnBonusLoop());
-            
-            
         }
 
         private void LowerRespawnTime()
         {
-            if (minTime > 1)
+            if (_minInterval > config.minEnemySpawnInterval)
             {
-                minTime -= 0.1f;
-            }
-            
-            if (maxTime > 2)
-            {
-                maxTime -= 0.1f;
+                _minInterval -= config.reducingSpawnTime;
+                _maxInterval -= config.reducingSpawnTime;
             }
         }
 
@@ -57,14 +60,32 @@ namespace _Project.Scripts
         {
             GenerateRandomDot();
             
-            Instantiate(enemyPrefab, _randomPosition, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefab, _randomPosition, Quaternion.identity);
+            ObjectMovment movement = enemy.GetComponent<ObjectMovment>();
+            if (movement)
+            {
+                movement.speed = _speed;
+            }
         }
         
         private void SpawnBonus()
         {
             GenerateRandomDot();
             
-            Instantiate(bonusPrefab, _randomPosition, Quaternion.identity);
+            GameObject bonus = Instantiate(bonusPrefab, _randomPosition, Quaternion.identity);
+            ObjectMovment movement = bonus.GetComponent<ObjectMovment>();
+            if (movement)
+            {
+                movement.speed = _speed - 1f;
+            }
+        }
+
+        private void SpeedUp()
+        {
+            if (_speed < config.maxEnemySpeed)
+            {
+                _speed += config.increaseEnemySpeed;
+            }
         }
 
         private void GenerateRandomDot()
@@ -76,7 +97,7 @@ namespace _Project.Scripts
         {
             while (true)
             {
-                yield return new WaitForSeconds(Random.Range(minTime, maxTime));
+                yield return new WaitForSeconds(Random.Range(_minInterval, _maxInterval));
                 SpawnEnemy();
             }
         }
@@ -85,7 +106,7 @@ namespace _Project.Scripts
         {
             while (true)
             {
-                yield return new WaitForSeconds(Random.Range((minTime * 3), (maxTime * 3)));
+                yield return new WaitForSeconds(Random.Range((_minInterval * config.bonusSpawnInterval), (_maxInterval * config.bonusSpawnInterval)));
                 SpawnBonus();
             }
         }

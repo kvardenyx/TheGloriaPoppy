@@ -12,15 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42aa974524b4660b1e81facd5500426, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  basePlayerSpeed: 60
-  maxPlayerSpeed: 180
-  maxEnemySpawnInterval: 4
-  minEnemySpawnInterval: 3
-  baseEnemySpeed: 2.5
-  maxEnemySpeed: 4
-  bonusSpawnInterval: 10
+  basePlayerSpeed: 100
+  maxPlayerSpeed: 200
+  playerHealth: 3
+  upperEnemySpawnInterval: 3
+  lowerEnemySpawnInterval: 2.5
+  minEnemySpawnInterval: 0.5
+  baseEnemySpeed: 3
+  maxEnemySpeed: 5
+  bonusSpawnInterval: 5
+  bonusRotateSpeed: 720
   cameraSize: 5
+  baseAspectRatio: 0.5625
+  currentAspectRatio: 0.5625
   bonusLevelUp: 5
-  reducingSpawnTime: 0.1
   increasePlayerSpeed: 5
-  increaseEnemySpeed: 0.1
+  increaseEnemySpeed: 0.2
+  reducingSpawnTime: 0.2

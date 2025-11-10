@@ -209,10 +209,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8007d41758fc5f74cb9d3b2d10fef8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: 2bbea4bc4e533ba4fa875cd860188fdd, type: 2}
   playerCenter: {fileID: 1443376349}
   playerSprite: {fileID: 1063091332}
   _rb: {fileID: 1443376351}
-  playerSpeed: 100
   scoreController: {fileID: 960170732}
 --- !u!70 &187206927
 CapsuleCollider2D:
@@ -954,6 +954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9db2f8d3633465380e7b553a92d8879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: 2bbea4bc4e533ba4fa875cd860188fdd, type: 2}
 --- !u!1 &969803091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,10 +1261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a878b2980b4894bb07f8f36d6418e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: 2bbea4bc4e533ba4fa875cd860188fdd, type: 2}
   spawnerPositon: {fileID: 1279201240}
   spawnerRange: {x: 0, y: 1.8}
-  minTime: 3
-  maxTime: 5
   enemyPrefab: {fileID: 7550731533876245992, guid: 330f2f60d5ba89a4bb12249a931b85f7, type: 3}
   bonusPrefab: {fileID: 6054597921791204525, guid: 4ec7bbb99799b124685ee62111b4d969, type: 3}
   scoreController: {fileID: 960170732}
@@ -1606,9 +1606,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19a42b5d8822423fa7e6172b2f51716e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: 2bbea4bc4e533ba4fa875cd860188fdd, type: 2}
   scenesManager: {fileID: 9145024397662211653, guid: 26e6ac69de47b5048924b6e3aa225fe4, type: 3}
   scoreController: {fileID: 960170732}
-  healthValue: 1
 --- !u!1 &1776247803
 GameObject:
   m_ObjectHideFlags: 0

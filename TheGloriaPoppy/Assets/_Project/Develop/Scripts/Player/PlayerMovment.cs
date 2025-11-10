@@ -5,24 +5,30 @@ namespace _Project.Scripts
 {
     public class PlayerMovment : MonoBehaviour
     {
+        public GameConfig config;
+        
         [SerializeField] private GameObject playerCenter;
         [SerializeField] private SpriteRenderer playerSprite;
 
         [SerializeField] private Rigidbody2D _rb;
         
-        [SerializeField, Range(60f, 360f)] 
-        private float playerSpeed = 180f;
+        private float _playerSpeed;
         
         [SerializeField] private ScoreController scoreController;
-        
+
+        private void Start()
+        {
+            _playerSpeed = config.basePlayerSpeed;
+        }
+
         private void OnEnable()
         {
-            scoreController.PowerUp += AddPlayerSpeed;
+            scoreController.LevelUp += AddPlayerSpeed;
         }
 
         private void OnDisable()
         {
-            scoreController.PowerUp -= AddPlayerSpeed;
+            scoreController.LevelUp -= AddPlayerSpeed;
         }
 
         void Update()
@@ -31,7 +37,7 @@ namespace _Project.Scripts
             {
                 playerSprite.flipY = !playerSprite.flipY;
                 
-                playerSpeed = -playerSpeed;
+                _playerSpeed = -_playerSpeed;
             }
         }
 
@@ -42,19 +48,19 @@ namespace _Project.Scripts
 
         void AddPlayerSpeed()
         {
-            if (playerSpeed < 0f)
+            if (_playerSpeed < 0f)
             {
-                playerSpeed -= 5f;
+                _playerSpeed -= config.increasePlayerSpeed;
             } 
-            else if (playerSpeed > 0f && playerSpeed < 200f)
+            else if (_playerSpeed > 0f && _playerSpeed < config.maxPlayerSpeed)
             {
-                playerSpeed += 5f;
+                _playerSpeed += config.increasePlayerSpeed;
             }
         }
 
         void Movment()
         {
-            _rb.angularVelocity = playerSpeed;
+            _rb.angularVelocity = _playerSpeed;
         }
     }
 }

@@ -6,9 +6,7 @@ namespace _Project.Scripts
     {
         private Rigidbody2D _rb;
         
-        [SerializeField, Range(2f, 5f)] 
-        private float speed = 2f;
-
+        public float speed;
         private void Start()
         {
             _rb = GetComponent<Rigidbody2D>();

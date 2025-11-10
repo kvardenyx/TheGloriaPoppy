@@ -5,11 +5,11 @@ namespace _Project.Scripts
 {
     public class Rotator : MonoBehaviour
     {
-        [SerializeField, Range(100f, 300f)]
-        private float speed = 150f;
+        public GameConfig config;
+        
         private void Update()
         {
-            gameObject.transform.Rotate(0, 0, speed * Time.deltaTime);
+            gameObject.transform.Rotate(0, 0, config.bonusRotateSpeed * Time.deltaTime);
         }
     }
 }

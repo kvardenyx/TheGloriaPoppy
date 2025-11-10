@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8713682065040742198}
   m_Layer: 0
   m_Name: Bonus
-  m_TagString: Untagged
+  m_TagString: Bonus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90fc9edb327a411f9ffd3f7290df15c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  config: {fileID: 11400000, guid: 2bbea4bc4e533ba4fa875cd860188fdd, type: 2}
 --- !u!70 &5882452689019069080
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438c10723cc24d438693d8587ec705d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 150
+  config: {fileID: 11400000, guid: 2bbea4bc4e533ba4fa875cd860188fdd, type: 2}
 --- !u!1 &8302969577255743448
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,17 +1,17 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace _Project.Scripts
 {
     public class ScoreController : MonoBehaviour
     {
+        public GameConfig config;
+        
         private int _scoreValue = 0;
         private Text _scoreText;
 
-        public Action PowerUp;
+        public Action LevelUp;
 
         private void Start()
         {
@@ -25,15 +25,18 @@ namespace _Project.Scripts
         public void AddScore()
         {
             _scoreValue++;
-            
-            PlayerPrefs.SetInt("Score", _scoreValue);
 
             _scoreText.text = _scoreValue.ToString();
             
-            if (_scoreValue % 10 == 0)
+            if (_scoreValue % config.bonusLevelUp == 0)
             {
-                PowerUp?.Invoke();
+                LevelUp?.Invoke();
             }
+        }
+
+        public void SaveScore()
+        {
+            PlayerPrefs.SetInt("Score", _scoreValue);
         }
 
         public void ChangeRecord()

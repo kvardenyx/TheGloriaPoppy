@@ -31,9 +31,9 @@ namespace _Project.Scripts
             scoreController.LevelUp -= AddPlayerSpeed;
         }
 
-        void Update()
+        public void ChangeDirection()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Time.timeScale > 0)
             {
                 playerSprite.flipY = !playerSprite.flipY;
                 

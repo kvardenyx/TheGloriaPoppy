@@ -43,7 +43,7 @@ namespace _Project.Scripts
 
         private void FixedUpdate()
         {
-            Movment();
+            Movement();
         }
 
         void AddPlayerSpeed()
@@ -58,7 +58,7 @@ namespace _Project.Scripts
             }
         }
 
-        void Movment()
+        void Movement()
         {
             _rb.angularVelocity = _playerSpeed;
         }

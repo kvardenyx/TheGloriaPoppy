@@ -20,16 +20,9 @@ public class GameStatesManager : MonoBehaviour
 
     public void LoadScene(string nameScene)
     {
-        SceneManager.LoadScene(nameScene);
-    }
-    public void PauseGame()
-    {
-        Time.timeScale = 0f;
-    }
-    
-    public void ContinueGame()
-    {
         Time.timeScale = 1f;
+        
+        SceneManager.LoadScene(nameScene);
     }
 
     public void ReloadGame()
@@ -37,10 +30,5 @@ public class GameStatesManager : MonoBehaviour
         Time.timeScale = 1f;
         
         SceneManager.LoadScene("Core");
-    }
-
-    public void LosseGame()
-    {
-        Time.timeScale = 0f;
     }
 }

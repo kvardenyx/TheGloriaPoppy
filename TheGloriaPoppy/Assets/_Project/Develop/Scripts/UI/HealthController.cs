@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +8,9 @@ namespace _Project.Scripts
     {
         public GameConfig config;
         
-        [SerializeField] private ScenesManager scenesManager;
-        
         [SerializeField] private ScoreController scoreController;
+
+        public Action PlayerIsDead;
         
         private int _healthValue;
         private Text _healthText;
@@ -39,10 +40,10 @@ namespace _Project.Scripts
             if (_healthValue < 1)
             {
                 scoreController.SaveScore();
-                
+
                 scoreController.ChangeRecord();
                 
-                scenesManager.LoadScene("LoseScene");
+                PlayerIsDead?.Invoke();
             }
         }
     }

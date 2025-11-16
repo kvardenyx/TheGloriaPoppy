@@ -693,8 +693,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9145024397662211653, guid: 26e6ac69de47b5048924b6e3aa225fe4, type: 3}
-        m_TargetAssemblyTypeName: ScenesManager, Assembly-CSharp
+      - m_Target: {fileID: 3824936116454732618, guid: 7b6d715b4345fbe48b6ab5597bcfa383, type: 3}
+        m_TargetAssemblyTypeName: GameStatesManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -725,7 +725,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1939849234, guid: c51eed86fc2271d48a673cd63a0e651b, type: 3}
+  m_Sprite: {fileID: 8160775752198118580, guid: c51eed86fc2271d48a673cd63a0e651b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -3,19 +3,32 @@ using UnityEngine.SceneManagement;
 
 public class GameStatesManager : MonoBehaviour
 {
-    [SerializeField] private GameObject panel;
+    private static bool _created;
 
+    
+    private void Awake()
+    {
+        if (_created)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        _created = true;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void LoadScene(string nameScene)
+    {
+        SceneManager.LoadScene(nameScene);
+    }
     public void PauseGame()
     {
-        panel.SetActive(true);
-
         Time.timeScale = 0f;
     }
     
     public void ContinueGame()
     {
-        panel.SetActive(false);
-
         Time.timeScale = 1f;
     }
 
@@ -24,5 +37,10 @@ public class GameStatesManager : MonoBehaviour
         Time.timeScale = 1f;
         
         SceneManager.LoadScene("Core");
+    }
+
+    public void LosseGame()
+    {
+        Time.timeScale = 0f;
     }
 }

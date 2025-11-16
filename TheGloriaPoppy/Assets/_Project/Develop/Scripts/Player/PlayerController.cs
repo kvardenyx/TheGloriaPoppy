@@ -4,7 +4,6 @@ namespace _Project.Scripts
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private ScenesManager scenesManager;
         [SerializeField] private HealthController healthController;
 
         [SerializeField] private GameObject boneEffect;

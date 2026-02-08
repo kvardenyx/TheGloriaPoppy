@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Project.Scripts
@@ -7,21 +8,32 @@ namespace _Project.Scripts
         [SerializeField] private HealthController healthController;
 
         [SerializeField] private GameObject boneEffect;
+        
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Enemy"))
+            if (other.gameObject.TryGetComponent(out ObjectMovment objectMovment))
             {
-                healthController.RemoveHealth();
-                
-                Destroy(other.gameObject);
-            }
-            else
-            {
-                Destroy(other.gameObject);
+                if (!objectMovment.isTrigger)
+                {
+                    objectMovment.isTrigger = true;
+                    
+                    if (objectMovment.CompareTag("Enemy"))
+                    {
+                        healthController.RemoveHealth();
 
-                Instantiate(boneEffect, transform.position, Quaternion.identity);
+                        objectMovment.ChangeDirectoryMove();
                 
-                healthController.AddHealth();
+                    }
+                    else
+                    {
+                        Destroy(other.gameObject);
+
+                        Instantiate(boneEffect, transform.position, Quaternion.identity);
+                
+                        healthController.AddHealth();
+                    }
+                }
             }
         }
     }

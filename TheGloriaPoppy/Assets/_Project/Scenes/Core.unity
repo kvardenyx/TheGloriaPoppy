@@ -197,6 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthController: {fileID: 1686594843}
   boneEffect: {fileID: 3247001500048694895, guid: 30fe328ec2459be45936910a8268aa54, type: 3}
+  addLifeAnim: {fileID: 7300974715329599005, guid: 694fa9cfb09d98049a402d289d199aa0, type: 3}
+  loseLifeAnim: {fileID: 8858528814134934364, guid: 6cf6e9979b516dd4ebb0f69089b227a6, type: 3}
 --- !u!114 &187206926
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -328,6 +328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameStates
       objectReference: {fileID: 0}
+    - target: {fileID: 3824936116454732618, guid: 7b6d715b4345fbe48b6ab5597bcfa383, type: 3}
+      propertyPath: backgroundTheme
+      value: 
+      objectReference: {fileID: 1240947287532908898, guid: f8b177fb00501fc4d8284a9ea133cdbb, type: 3}
     - target: {fileID: 7509858596499264148, guid: 7b6d715b4345fbe48b6ab5597bcfa383, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

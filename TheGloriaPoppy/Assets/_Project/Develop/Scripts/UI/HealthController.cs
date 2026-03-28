@@ -1,4 +1,5 @@
 using System;
+using _Project.Develop.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,6 +40,8 @@ namespace _Project.Scripts
             
             if (_healthValue < 1)
             {
+                SoundManager.Instance.PlaySound(SoundManager.Instance.deathSound);
+                
                 scoreController.SaveScore();
 
                 scoreController.ChangeRecord();

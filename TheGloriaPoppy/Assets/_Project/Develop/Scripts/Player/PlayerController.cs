@@ -1,4 +1,5 @@
 using System.Collections;
+using _Project.Develop.Scripts;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -24,6 +25,8 @@ namespace _Project.Scripts
                     
                     if (objectMovment.CompareTag("Enemy"))
                     {
+                        SoundManager.Instance.PlaySound(SoundManager.Instance.hitSound);
+                        
                         healthController.RemoveHealth();
 
                         objectMovment.ChangeDirectoryMove();
@@ -34,6 +37,8 @@ namespace _Project.Scripts
                     else
                     {
                         Destroy(other.gameObject);
+                        
+                        SoundManager.Instance.PlaySound(SoundManager.Instance.pickupSound);
 
                         Instantiate(boneEffect, transform.position, Quaternion.identity);
                 

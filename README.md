@@ -1,4 +1,4 @@
-![Баннер](images/Banner.jpg)
+![Баннер](media/Banner.jpg)
 
 # 🎮 The Gloria Poppy
 

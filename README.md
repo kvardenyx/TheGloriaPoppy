@@ -16,7 +16,7 @@
 
 ## 🎥 Игровой процесс
 
-![Gameplay 1](media/TheGloriaPoppyGameplay.mp4)
+![Gameplay 1](media/TheGloriaPoppyGameplay.gif)
 
 ---
 
